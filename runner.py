@@ -1,6 +1,11 @@
 import subprocess
 import time
 
+def commit_changes():
+    subprocess.run(["git", "add", "."], check=True)
+    subprocess.run(["git", "commit", "-m", "Auto-commit after successful autoblogger iteration"], check=True)
+    subprocess.run(["git", "push"], check=True)
+
 def autoblogger(a, b):
     with open(f"{a}.txt", "w") as f:
       f.write(a)
