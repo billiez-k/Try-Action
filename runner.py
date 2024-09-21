@@ -34,5 +34,4 @@ def main():
         autoblogger(query, category)
 
 if __name__ == "__main__":
-    if not DEBUG:
-        main()
+    main()
