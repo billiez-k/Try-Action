@@ -5,7 +5,7 @@ def autoblogger(a, b):
     with open(f"{a}.txt", "w") as f:
       f.write(a)
       f.write("\n")
-      f.write(b)
+      f.write(str(b))
       time.sleep(60)
     commit_changes()
 
