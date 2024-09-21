@@ -1,5 +1,5 @@
 import subprocess
-from time import time
+import time
 
 def autoblogger(a, b):
     with open(f"{a}.txt", "w") as f:
