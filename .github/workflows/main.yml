@@ -1,0 +1,33 @@
+name: AI 自動筆
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # This step now runs incrementally, committing changes after each iteration
+      - name: Run AI 自動筆 script
+        run: python runner.py
+
+      # Final commit for any uncommitted files
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        id: auto-commit-action
+        with:
+            commit_message: Final commit after script completion
+            branch: ${{ github.ref }}
+            force: true
