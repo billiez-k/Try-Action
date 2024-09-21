@@ -20,6 +20,12 @@ jobs:
         with:
           python-version: '3.11'
 
+      # Add this step to configure Git identity
+      - name: Configure Git Identity
+        run: |
+          git config --global user.name "billiez-k"
+          git config --global user.email "mail@craftguy.eu.org"
+
       # This step now runs incrementally, committing changes after each iteration
       - name: Run AI 自動筆 script
         run: python runner.py
